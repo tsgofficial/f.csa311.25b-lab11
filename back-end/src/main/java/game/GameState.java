@@ -20,8 +20,8 @@ public class GameState {
     }
 
     /**
-     * toString() of GameState will return the string representing
-     * the GameState in JSON format.
+     * toString() of GameState will return the string representing the GameState
+     * in JSON format.
      */
     @Override
     public String toString() {
@@ -38,11 +38,11 @@ public class GameState {
                 String text = "";
                 boolean playable = false;
                 Player player = board.getCell(x, y);
-                if (player == Player.PLAYER0)
+                if (player == Player.PLAYER0) {
                     text = "X";
-                else if (player == Player.PLAYER1)
+                } else if (player == Player.PLAYER1) {
                     text = "O";
-                else if (player == null) {
+                } else if (player == null) {
                     playable = true;
                 }
                 cells[3 * y + x] = new Cell(x, y, text, playable);
@@ -53,6 +53,7 @@ public class GameState {
 }
 
 class Cell {
+
     private final int x;
     private final int y;
     private final String text;

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Board {
+
     private final Player[] cells;
 
     public Board() {
@@ -24,5 +25,27 @@ public class Board {
         Player[] newCells = Arrays.copyOf(this.cells, this.cells.length);
         newCells[y * 3 + x] = player;
         return new Board(newCells);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                Player cell = getCell(x, y);
+                if (cell == null) {
+                    sb.append(".");
+                } else if (cell == Player.PLAYER0) {
+                    sb.append("X");
+                } else {
+                    sb.append("O");
+                }
+                if (x < 2) {
+                    sb.append(" ");
+                }
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
