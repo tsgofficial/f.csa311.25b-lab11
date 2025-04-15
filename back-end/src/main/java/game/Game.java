@@ -51,13 +51,12 @@ public class Game {
         List<Game> newHistory = new ArrayList<>(this.history);
         newHistory.add(this);
 
-        System.out.println("Move history:");
-        for (int i = 0; i < newHistory.size(); i++) {
-            System.out.println("Step " + i + ":\n" + newHistory.get(i).getBoard());
-        }
-
         Player nextPlayer = this.player == Player.PLAYER0 ? Player.PLAYER1 : Player.PLAYER0;
         return new Game(this.board.updateCell(x, y, this.player), nextPlayer, newHistory);
+    }
+
+    public Player getCurrentPlayer() {
+        return this.player;
     }
 
     public Player getWinner() {

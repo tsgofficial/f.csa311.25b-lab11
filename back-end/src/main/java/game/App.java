@@ -17,11 +17,6 @@ public class App extends NanoHTTPD {
 
     private Game game;
 
-    /**
-     * Start the server at :8080 port.
-     *
-     * @throws IOException
-     */
     public App() throws IOException {
         super(8080);
 
@@ -43,7 +38,6 @@ public class App extends NanoHTTPD {
         } else if (uri.equals("/undo")) {
             this.game = this.game.undo();
         }
-        // Extract the view-specific data from the game and apply it to the template.
         GameState gameplay = GameState.forGame(this.game);
         return newFixedLengthResponse(gameplay.toString());
     }
